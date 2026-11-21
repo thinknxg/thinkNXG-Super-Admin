@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "autoname": "field:provider_name",
+ "creation": "2026-11-21 08:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "provider_name",
+  "provider_type",
+  "status",
+  "cb_idp1",
+  "server_url",
+  "realm",
+  "issuer_url",
+  "sb_idp_admin",
+  "admin_client_id",
+  "admin_client_secret",
+  "sb_idp_ep",
+  "authorization_endpoint",
+  "token_endpoint",
+  "cb_idp2",
+  "jwks_uri",
+  "end_session_endpoint",
+  "last_checked"
+ ],
+ "fields": [
+  {
+   "fieldname": "provider_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Provider Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "Keycloak",
+   "fieldname": "provider_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Provider Type",
+   "options": "Keycloak\nGeneric OIDC",
+   "reqd": 1
+  },
+  {
+   "default": "Not Connected",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Not Connected\nConnected\nError",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_idp1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Keycloak origin, for example https://auth.thinknxg.com",
+   "fieldname": "server_url",
+   "fieldtype": "Data",
+   "label": "Server Url"
+  },
+  {
+   "description": "Keycloak realm name.",
+   "fieldname": "realm",
+   "fieldtype": "Data",
+   "label": "Realm"
+  },
+  {
+   "description": "Must equal the iss claim exactly. Derived from server URL and realm for Keycloak.",
+   "fieldname": "issuer_url",
+   "fieldtype": "Data",
+   "label": "Issuer Url",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb_idp_admin",
+   "fieldtype": "Section Break",
+   "label": "Admin API service account"
+  },
+  {
+   "fieldname": "admin_client_id",
+   "fieldtype": "Data",
+   "label": "Admin Client Id",
+   "reqd": 1
+  },
+  {
+   "description": "Prefer an external secret store in production.",
+   "fieldname": "admin_client_secret",
+   "fieldtype": "Password",
+   "label": "Admin Client Secret",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_idp_ep",
+   "fieldtype": "Section Break",
+   "label": "Endpoints"
+  },
+  {
+   "fieldname": "authorization_endpoint",
+   "fieldtype": "Data",
+   "label": "Authorization Endpoint"
+  },
+  {
+   "fieldname": "token_endpoint",
+   "fieldtype": "Data",
+   "label": "Token Endpoint"
+  },
+  {
+   "fieldname": "cb_idp2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "jwks_uri",
+   "fieldtype": "Data",
+   "label": "Jwks Uri"
+  },
+  {
+   "fieldname": "end_session_endpoint",
+   "fieldtype": "Data",
+   "label": "End Session Endpoint"
+  },
+  {
+   "fieldname": "last_checked",
+   "fieldtype": "Datetime",
+   "label": "Last Checked",
+   "read_only": 1
+  }
+ ],
+ "icon": "key-round",
+ "links": [],
+ "modified": "2026-11-21 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "ThinkNXG Identity Provider",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Super Admin",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Auditor",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

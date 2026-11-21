@@ -1,0 +1,405 @@
+{
+ "actions": [],
+ "autoname": "field:site_name",
+ "creation": "2026-11-21 08:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "site_name",
+  "display_name",
+  "organization",
+  "site_url",
+  "cb_site1",
+  "status",
+  "connection_status",
+  "last_health_check",
+  "site_type",
+  "sb_site_dom",
+  "domain",
+  "cb_site2",
+  "subdomain",
+  "sb_site_info",
+  "description",
+  "logo",
+  "contact_name",
+  "contact_email",
+  "contact_phone",
+  "supported_apps",
+  "sb_site_sso",
+  "keycloak_client_id",
+  "redirect_uris",
+  "cb_site3",
+  "provisioning_mode",
+  "auto_create_on_first_login",
+  "deprovision_policy",
+  "sb_site_agent",
+  "agent_key_id",
+  "agent_public_key",
+  "agent_prev_key_id",
+  "agent_prev_public_key",
+  "agent_prev_expires",
+  "central_key_acked",
+  "agent_api_version",
+  "paired_at",
+  "pairing_code_hash",
+  "pairing_expires_at",
+  "pairing_attempts",
+  "cb_site4",
+  "roles_catalogue_hash",
+  "roles_catalogue"
+ ],
+ "fields": [
+  {
+   "description": "Immutable slug, for example company-a.",
+   "fieldname": "site_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Site Name",
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Display Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "ThinkNXG Organization",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "description": "HTTPS origin, for example https://company-a.thinknxg.com",
+   "fieldname": "site_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Site Url",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "cb_site1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nInactive\nDisconnected",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Unknown",
+   "fieldname": "connection_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Connection Status",
+   "options": "Unknown\nOnline\nDegraded\nOffline",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_health_check",
+   "fieldtype": "Datetime",
+   "label": "Last Health Check",
+   "read_only": 1
+  },
+  {
+   "default": "Production",
+   "fieldname": "site_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Site Type",
+   "options": "Production\nStaging\nDemo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb_site_dom",
+   "fieldtype": "Section Break",
+   "label": "Domain"
+  },
+  {
+   "fieldname": "domain",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Domain",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_site2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subdomain",
+   "fieldtype": "Data",
+   "label": "Subdomain",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_site_info",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "contact_name",
+   "fieldtype": "Data",
+   "label": "Contact Name"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Contact Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "supported_apps",
+   "fieldtype": "Table",
+   "label": "Supported Apps",
+   "options": "ThinkNXG Site Application"
+  },
+  {
+   "fieldname": "sb_site_sso",
+   "fieldtype": "Section Break",
+   "label": "Identity and access"
+  },
+  {
+   "fieldname": "keycloak_client_id",
+   "fieldtype": "Data",
+   "label": "Keycloak Client Id",
+   "no_copy": 1,
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "description": "A default callback URI is added automatically.",
+   "fieldname": "redirect_uris",
+   "fieldtype": "Table",
+   "label": "Redirect Uris",
+   "options": "ThinkNXG Site Redirect URI"
+  },
+  {
+   "fieldname": "cb_site3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Manual approval",
+   "fieldname": "provisioning_mode",
+   "fieldtype": "Select",
+   "label": "Provisioning Mode",
+   "options": "Manual approval\nAutomatic"
+  },
+  {
+   "default": "1",
+   "description": "Create the local user on first login if central confirms an active assignment.",
+   "fieldname": "auto_create_on_first_login",
+   "fieldtype": "Check",
+   "label": "Auto Create On First Login"
+  },
+  {
+   "default": "Disable",
+   "fieldname": "deprovision_policy",
+   "fieldtype": "Select",
+   "label": "Deprovision Policy",
+   "options": "Disable\nDisable and remove managed roles\nDisable and delete",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_site_agent",
+   "fieldtype": "Section Break",
+   "label": "Site agent"
+  },
+  {
+   "fieldname": "agent_key_id",
+   "fieldtype": "Data",
+   "label": "Agent Key Id",
+   "no_copy": 1,
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "agent_public_key",
+   "fieldtype": "Long Text",
+   "label": "Agent Public Key",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "agent_prev_key_id",
+   "label": "Previous Agent Key Id",
+   "fieldtype": "Data",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "agent_prev_public_key",
+   "label": "Previous Agent Public Key",
+   "fieldtype": "Long Text",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "agent_prev_expires",
+   "label": "Previous Agent Key Valid Until",
+   "fieldtype": "Datetime",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "central_key_acked",
+   "label": "Central Key Staged On Site",
+   "fieldtype": "Data",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "agent_api_version",
+   "fieldtype": "Data",
+   "label": "Agent Api Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paired_at",
+   "fieldtype": "Datetime",
+   "label": "Paired At",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "pairing_code_hash",
+   "fieldtype": "Data",
+   "label": "Pairing Code Hash",
+   "read_only": 1,
+   "hidden": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "pairing_expires_at",
+   "fieldtype": "Datetime",
+   "label": "Pairing Expires At",
+   "read_only": 1,
+   "hidden": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "pairing_attempts",
+   "fieldtype": "Int",
+   "label": "Pairing Attempts",
+   "read_only": 1,
+   "hidden": 1,
+   "no_copy": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "cb_site4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "roles_catalogue_hash",
+   "fieldtype": "Data",
+   "label": "Roles Catalogue Hash",
+   "read_only": 1
+  },
+  {
+   "description": "Role names reported by the site agent.",
+   "fieldname": "roles_catalogue",
+   "fieldtype": "JSON",
+   "label": "Roles Catalogue",
+   "no_copy": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "globe",
+ "links": [],
+ "modified": "2026-11-21 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "ThinkNXG Managed Site",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Super Admin",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Auditor",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Org Admin",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "search_fields": "display_name,site_url,organization",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "display_name",
+ "track_changes": 1
+}

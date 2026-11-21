@@ -1,0 +1,189 @@
+{
+ "actions": [],
+ "creation": "2026-11-21 08:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "identity_provider",
+  "default_scopes",
+  "require_pkce",
+  "backchannel_logout_enabled",
+  "auto_create_on_first_login_default",
+  "cb_sso1",
+  "access_token_ttl_seconds",
+  "session_idle_ttl_minutes",
+  "session_absolute_ttl_minutes",
+  "jwks_cache_ttl_seconds",
+  "allowed_redirect_suffixes",
+  "central_key_id",
+  "central_public_key",
+  "central_private_key",
+  "central_next_key_id",
+  "central_next_public_key",
+  "central_next_private_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "identity_provider",
+   "fieldtype": "Link",
+   "label": "Identity Provider",
+   "options": "ThinkNXG Identity Provider",
+   "reqd": 1
+  },
+  {
+   "default": "openid profile email",
+   "fieldname": "default_scopes",
+   "fieldtype": "Data",
+   "label": "Default Scopes",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "description": "PKCE S256 is always required.",
+   "fieldname": "require_pkce",
+   "fieldtype": "Check",
+   "label": "Require Pkce",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "backchannel_logout_enabled",
+   "fieldtype": "Check",
+   "label": "Backchannel Logout Enabled"
+  },
+  {
+   "default": "1",
+   "description": "Default for new sites. A user is only created if central confirms an active assignment.",
+   "fieldname": "auto_create_on_first_login_default",
+   "fieldtype": "Check",
+   "label": "Auto Create On First Login Default"
+  },
+  {
+   "fieldname": "cb_sso1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "300",
+   "fieldname": "access_token_ttl_seconds",
+   "fieldtype": "Int",
+   "label": "Access Token Ttl Seconds"
+  },
+  {
+   "default": "480",
+   "fieldname": "session_idle_ttl_minutes",
+   "fieldtype": "Int",
+   "label": "Session Idle Ttl Minutes"
+  },
+  {
+   "default": "1440",
+   "fieldname": "session_absolute_ttl_minutes",
+   "fieldtype": "Int",
+   "label": "Session Absolute Ttl Minutes"
+  },
+  {
+   "default": "3600",
+   "fieldname": "jwks_cache_ttl_seconds",
+   "fieldtype": "Int",
+   "label": "Jwks Cache Ttl Seconds"
+  },
+  {
+   "description": "One host suffix per line, for example .thinknxg.com. Empty means any registered site URL.",
+   "fieldname": "allowed_redirect_suffixes",
+   "fieldtype": "Small Text",
+   "label": "Allowed Redirect Suffixes"
+  },
+  {
+   "fieldname": "central_key_id",
+   "fieldtype": "Data",
+   "label": "Central Signing Key Id",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "central_public_key",
+   "fieldtype": "Long Text",
+   "label": "Central Signing Public Key",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "central_private_key",
+   "fieldtype": "Password",
+   "label": "Central Signing Private Key",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "central_next_key_id",
+   "label": "Next Central Key Id",
+   "fieldtype": "Data",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "central_next_public_key",
+   "label": "Next Central Public Key",
+   "fieldtype": "Long Text",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "central_next_private_key",
+   "label": "Next Central Private Key",
+   "fieldtype": "Password",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "icon": "settings",
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-21 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "ThinkNXG SSO Configuration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Super Admin",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Auditor",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "autoname": "field:policy_name",
+ "creation": "2026-11-21 08:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "policy_name",
+  "mfa_mode",
+  "cb_pol1",
+  "password_min_length",
+  "max_failed_logins",
+  "lockout_minutes",
+  "sb_pol_sess",
+  "session_idle_ttl_minutes",
+  "cb_pol2",
+  "session_absolute_ttl_minutes",
+  "sb_pol_access",
+  "allowed_ip_ranges",
+  "allow_privileged_roles",
+  "deprovision_policy_default"
+ ],
+ "fields": [
+  {
+   "fieldname": "policy_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Policy Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "Admins",
+   "description": "Enforced in Keycloak as a required action.",
+   "fieldname": "mfa_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Mfa Mode",
+   "options": "Off\nAdmins\nAll",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_pol1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "12",
+   "description": "Applied in Keycloak password policy.",
+   "fieldname": "password_min_length",
+   "fieldtype": "Int",
+   "label": "Password Min Length"
+  },
+  {
+   "default": "5",
+   "fieldname": "max_failed_logins",
+   "fieldtype": "Int",
+   "label": "Max Failed Logins"
+  },
+  {
+   "default": "15",
+   "fieldname": "lockout_minutes",
+   "fieldtype": "Int",
+   "label": "Lockout Minutes"
+  },
+  {
+   "fieldname": "sb_pol_sess",
+   "fieldtype": "Section Break",
+   "label": "Sessions"
+  },
+  {
+   "default": "480",
+   "fieldname": "session_idle_ttl_minutes",
+   "fieldtype": "Int",
+   "label": "Session Idle Ttl Minutes"
+  },
+  {
+   "fieldname": "cb_pol2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1440",
+   "fieldname": "session_absolute_ttl_minutes",
+   "fieldtype": "Int",
+   "label": "Session Absolute Ttl Minutes"
+  },
+  {
+   "fieldname": "sb_pol_access",
+   "fieldtype": "Section Break",
+   "label": "Access rules"
+  },
+  {
+   "description": "Empty means no IP restriction.",
+   "fieldname": "allowed_ip_ranges",
+   "fieldtype": "Table",
+   "label": "Allowed Ip Ranges",
+   "options": "ThinkNXG Policy IP Range"
+  },
+  {
+   "default": "0",
+   "description": "Allow role templates that grant System Manager or Administrator. A second approver is always required.",
+   "fieldname": "allow_privileged_roles",
+   "fieldtype": "Check",
+   "label": "Allow Privileged Roles"
+  },
+  {
+   "default": "Disable",
+   "fieldname": "deprovision_policy_default",
+   "fieldtype": "Select",
+   "label": "Deprovision Policy Default",
+   "options": "Disable\nDisable and remove managed roles\nDisable and delete"
+  }
+ ],
+ "icon": "shield",
+ "links": [],
+ "modified": "2026-11-21 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "ThinkNXG Security Policy",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Super Admin",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Auditor",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

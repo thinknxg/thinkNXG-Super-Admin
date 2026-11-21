@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "creation": "2026-11-21 08:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "links": [],
+ "modified": "2026-11-21 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "ThinkNXG Alert Settings",
+ "owner": "Administrator",
+ "states": [],
+ "fields": [
+  {
+   "fieldname": "enable_in_app",
+   "fieldtype": "Check",
+   "label": "Send in-app notifications",
+   "default": "1"
+  },
+  {
+   "fieldname": "enable_email",
+   "fieldtype": "Check",
+   "label": "Send email",
+   "default": "1"
+  },
+  {
+   "fieldname": "email_min_severity",
+   "fieldtype": "Select",
+   "label": "Minimum severity for email",
+   "options": "Warning\nCritical",
+   "default": "Warning"
+  },
+  {
+   "fieldname": "extra_email_recipients",
+   "fieldtype": "Small Text",
+   "label": "Extra email recipients",
+   "description": "One address per line. Email only; these people get no in-app notification."
+  },
+  {
+   "fieldname": "cb_as1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "renotify_hours",
+   "fieldtype": "Int",
+   "label": "Remind every (hours)",
+   "default": "6"
+  },
+  {
+   "fieldname": "stale_health_minutes",
+   "fieldtype": "Int",
+   "label": "Health check stale after (minutes)",
+   "default": "15"
+  },
+  {
+   "fieldname": "needs_review_after_minutes",
+   "fieldtype": "Int",
+   "label": "Needs Review overdue after (minutes)",
+   "default": "60"
+  },
+  {
+   "fieldname": "queue_stuck_minutes",
+   "fieldtype": "Int",
+   "label": "Queue stuck after (minutes)",
+   "default": "15"
+  },
+  {
+   "fieldname": "failure_threshold",
+   "fieldtype": "Int",
+   "label": "Failures per hour per site",
+   "default": "5"
+  },
+  {
+   "fieldname": "denial_threshold",
+   "fieldtype": "Int",
+   "label": "Denied logins per 10 minutes per site",
+   "default": "10"
+  },
+  {
+   "fieldname": "last_evaluated_at",
+   "label": "Last Evaluated At",
+   "fieldtype": "Datetime",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "field_order": [
+  "enable_in_app",
+  "enable_email",
+  "email_min_severity",
+  "extra_email_recipients",
+  "cb_as1",
+  "renotify_hours",
+  "stale_health_minutes",
+  "needs_review_after_minutes",
+  "queue_stuck_minutes",
+  "failure_threshold",
+  "denial_threshold",
+  "last_evaluated_at"
+ ],
+ "issingle": 1,
+ "icon": "bell",
+ "track_changes": 1,
+ "permissions": [
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Super Admin",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Auditor",
+   "share": 0,
+   "write": 0
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+# DEVELOPMENT ONLY. Plain http, fixed secrets, start-dev. Never use this stack in production.
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: http://localhost:8080
+      KC_HEALTH_ENABLED: "true"
+    ports:
+      - "127.0.0.1:8080:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # lets Keycloak reach a bench on the host for back-channel logout
+    volumes:
+      - ./realm-thinknxg.json:/opt/keycloak/data/import/realm-thinknxg.json:ro

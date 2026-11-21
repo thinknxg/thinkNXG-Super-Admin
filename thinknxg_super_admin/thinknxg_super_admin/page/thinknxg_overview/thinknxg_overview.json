@@ -1,0 +1,21 @@
+{
+ "creation": "2026-11-21 09:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Page",
+ "icon": "dashboard",
+ "idx": 0,
+ "modified": "2026-11-21 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "thinknxg-overview",
+ "owner": "Administrator",
+ "page_name": "thinknxg-overview",
+ "roles": [
+  {"role": "thinkNXG Super Admin"},
+  {"role": "thinkNXG Org Admin"},
+  {"role": "thinkNXG Auditor"},
+  {"role": "System Manager"}
+ ],
+ "standard": "Yes",
+ "title": "thinkNXG Overview"
+}

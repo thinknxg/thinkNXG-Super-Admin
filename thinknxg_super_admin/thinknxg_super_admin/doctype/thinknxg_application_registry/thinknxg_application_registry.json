@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "autoname": "field:app_name",
+ "creation": "2026-11-21 08:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "app_name",
+  "display_name",
+  "app_type",
+  "cb_app1",
+  "min_version",
+  "icon",
+  "launch_path",
+  "default_role_catalogue"
+ ],
+ "fields": [
+  {
+   "fieldname": "app_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "App Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Display Name",
+   "reqd": 1
+  },
+  {
+   "default": "ERPNext",
+   "fieldname": "app_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "App Type",
+   "options": "ERPNext\nHRMS\nCRM\nHelpdesk\nCustom",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_app1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "min_version",
+   "fieldtype": "Data",
+   "label": "Min Version"
+  },
+  {
+   "fieldname": "icon",
+   "fieldtype": "Attach Image",
+   "label": "Icon"
+  },
+  {
+   "default": "/app",
+   "description": "Relative path opened after login, for example /app.",
+   "fieldname": "launch_path",
+   "fieldtype": "Data",
+   "label": "Launch Path",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_role_catalogue",
+   "fieldtype": "Table",
+   "label": "Default Role Catalogue",
+   "options": "ThinkNXG App Default Role"
+  }
+ ],
+ "icon": "package",
+ "links": [],
+ "modified": "2026-11-21 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "ThinkNXG Application Registry",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Super Admin",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Auditor",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Org Admin",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "display_name",
+ "track_changes": 1
+}

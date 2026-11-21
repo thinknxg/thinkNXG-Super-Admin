@@ -1,0 +1,162 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2026-11-21 08:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "site",
+  "organization",
+  "checked_at",
+  "reachable",
+  "latency_ms",
+  "cb_hl1",
+  "agent_version",
+  "frappe_version",
+  "erpnext_version",
+  "queue_backlog",
+  "scheduler_ok",
+  "clock_skew_ms",
+  "error"
+ ],
+ "fields": [
+  {
+   "fieldname": "site",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Site",
+   "options": "ThinkNXG Managed Site",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "site.organization",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "ThinkNXG Organization",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "checked_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Checked At",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "reachable",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Reachable"
+  },
+  {
+   "fieldname": "latency_ms",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Latency Ms"
+  },
+  {
+   "fieldname": "cb_hl1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "agent_version",
+   "fieldtype": "Data",
+   "label": "Agent Version"
+  },
+  {
+   "fieldname": "frappe_version",
+   "fieldtype": "Data",
+   "label": "Frappe Version"
+  },
+  {
+   "fieldname": "erpnext_version",
+   "fieldtype": "Data",
+   "label": "Erpnext Version"
+  },
+  {
+   "fieldname": "queue_backlog",
+   "fieldtype": "Int",
+   "label": "Queue Backlog"
+  },
+  {
+   "fieldname": "scheduler_ok",
+   "fieldtype": "Check",
+   "label": "Scheduler Ok"
+  },
+  {
+   "fieldname": "clock_skew_ms",
+   "fieldtype": "Int",
+   "label": "Clock Skew Ms"
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Small Text",
+   "label": "Error"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-21 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "thinkNXG Super Admin",
+ "name": "ThinkNXG Site Health Log",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Super Admin",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Auditor",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "thinkNXG Org Admin",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

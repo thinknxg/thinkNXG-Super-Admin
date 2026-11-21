@@ -1,0 +1,8 @@
+{
+ "host_name": "https://admin.example.com",
+ "developer_mode": 0,
+ "server_script_enabled": false,
+ "mute_emails": 0,
+ "max_file_size": 5242880,
+ "keep_backups_for_hours": 24
+}

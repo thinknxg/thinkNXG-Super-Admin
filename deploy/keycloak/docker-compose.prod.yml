@@ -1,0 +1,58 @@
+# Production Keycloak + PostgreSQL for thinkNXG. Runs behind nginx (deploy/nginx/keycloak.conf).
+# Required: copy .env.example to .env (chmod 600) and fill every value. Pin versions you have tested.
+name: thinknxg-idp
+
+services:
+  postgres:
+    image: postgres:${POSTGRES_VERSION:?set POSTGRES_VERSION}
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?}
+      POSTGRES_USER: ${POSTGRES_USER:?}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [idp]
+    security_opt: ["no-new-privileges:true"]
+    # No published ports: only Keycloak reaches the database.
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:?set KEYCLOAK_VERSION to the version you tested}
+    restart: unless-stopped
+    command: ["start"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+      KC_DB_USERNAME: ${POSTGRES_USER}
+      KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
+      # TLS ends at nginx. Keycloak trusts forwarded headers only from the Docker network.
+      KC_HOSTNAME: https://${KC_PUBLIC_HOST:?}
+      KC_HTTP_ENABLED: "true"
+      KC_PROXY_HEADERS: xforwarded
+      KC_PROXY_TRUSTED_ADDRESSES: ${KC_PROXY_TRUSTED_ADDRESSES:-172.29.0.0/24}
+      KC_HEALTH_ENABLED: "true"
+      # Used on first start only. Create a named admin with MFA, then delete these two lines and recreate.
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KC_BOOTSTRAP_ADMIN_USERNAME:?}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_BOOTSTRAP_ADMIN_PASSWORD:?}
+    ports:
+      - "127.0.0.1:8080:8080"   # nginx only. Port 9000 (management) is deliberately not published.
+    networks: [idp]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+
+networks:
+  idp:
+    ipam:
+      config:
+        - subnet: 172.29.0.0/24
+
+volumes:
+  pgdata:
